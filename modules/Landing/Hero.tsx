@@ -6,55 +6,40 @@ import Link from 'next/link';
 import {getCookie} from 'cookies-next';
 
 export const Hero = () => {
-  const token = getCookie('token');
-
   return (
-    <section className='container grid lg:grid-cols-2 place-items-center py-20 md:py-32 gap-10'>
-      <div className='text-center lg:text-start space-y-6'>
-        <main className='text-5xl md:text-6xl font-bold'>
-          <h1 className='inline'>
-            Находим{' '}
-            <span className='inline bg-gradient-to-r from-[#F596D3]  to-[#D247BF] text-transparent bg-clip-text'>
-              идеальную
-            </span>{' '}
-            бизнес-идею
-          </h1>{' '}
-          с помощью{' '}
-          <h2 className='inline'>
-            <span className='inline bg-gradient-to-r from-[#61DAFB] via-[#1fc0f1] to-[#03a3d7] text-transparent bg-clip-text'>
-              ИИ
-            </span>
-          </h2>
-        </main>
+    <section className='container flex flex-col items-center py-24 md:py-36 space-y-10 text-center'>
+      {/* Main Title Section */}
+      <div className='max-w-3xl space-y-6'>
+        <h1 className='text-5xl md:text-6xl font-bold'>
+          Готовые интернет-магазины с{' '}
+          <span className='inline bg-gradient-to-r from-[#F596D3] to-[#D247BF] text-transparent bg-clip-text'>
+            мощной
+          </span>{' '}
+          админ панелью
+        </h1>
 
-        <p className='text-xl text-muted-foreground md:w-10/12 mx-auto lg:mx-0'>
-          Единственный инструмент, который генерирует бизнес идеи на основе желаний и предпочтений
+        <p className='text-xl text-muted-foreground md:w-9/12 mx-auto'>
+          Создайте свой интернет-магазин без разработки с нашими готовыми решениями. Управляйте товарами, заказами и
+          клиентами с удобной админ панелью.
         </p>
-
-        <div className='space-y-4 md:space-y-0 md:space-x-4'>
-          <Link href={token ? '/home' : '/register'}>
-            <Button className='w-full md:w-1/3'>{token ? 'Продолжить' : 'Начать'}</Button>
-          </Link>
-          <a
-            rel='noreferrer noopener'
-            href='#features'
-            className={`w-full md:w-1/3 ${buttonVariants({
-              variant: 'outline'
-            })}`}
-          >
-            Подробнее
-            <ArrowDown className='ml-2 w-5 h-5' />
-          </a>
-        </div>
       </div>
 
-      {/* Hero cards sections */}
-      <div className='z-10'>
-        <HeroCards />
+      {/* Call to Action Buttons */}
+      <div className='flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4'>
+        <Link href='#purchase-request'>
+          <Button className='w-full md:w-auto px-8 py-4'>Приобрести</Button>
+        </Link>
+        <a
+          rel='noreferrer noopener'
+          href='#features'
+          className={`w-full md:w-auto px-8 py-4 ${buttonVariants({
+            variant: 'outline'
+          })}`}
+        >
+          Узнать больше
+          <ArrowDown className='ml-2 w-5 h-5' />
+        </a>
       </div>
-
-      {/* Shadow effect */}
-      <div className='shadow'></div>
     </section>
   );
 };

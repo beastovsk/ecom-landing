@@ -12,7 +12,7 @@ enum PopularPlanType {
 interface PricingProps {
   title: string;
   popular: PopularPlanType;
-  price: number;
+  price: string;
   description: string;
   buttonText: string;
   benefitList: string[];
@@ -20,18 +20,38 @@ interface PricingProps {
 
 const pricingList: PricingProps[] = [
   {
-    title: 'Генерация продукта',
-    popular: 1,
-    price: 300,
-    description: 'Вы получаете все то, о чем мы писали выше',
-    buttonText: 'Получить продукт бесплатно',
+    title: 'Стандартный пакет',
+    popular: PopularPlanType.NO,
+    price: '₽ 30.000,00',
+    description: 'Готовый интернет-магазин. Заказы через личный кабинет.',
+    buttonText: 'Заказать',
     benefitList: [
-      'Общая информация о продукте',
-      'Характеристики и преимущества',
-      'Информация о рынке и аудитории',
-      'Информация о создании продукта',
-      'Уникальное торговое предложение'
+      'Готовый интернет-магазин',
+      'Админ панель для управления',
+      'Базовая поддержка',
+      'Заказы через личный кабинет'
     ]
+  },
+  {
+    title: 'Премиум пакет',
+    popular: PopularPlanType.YES,
+    price: '₽ 50.000,00',
+    description: 'Готовый интернет-магазин с интеграцией онлайн оплат (карты, СберПэй, криптовалюта).',
+    buttonText: 'Заказать',
+    benefitList: [
+      'Готовый интернет-магазин',
+      'Админ панель для управления',
+      'Интеграция онлайн оплат',
+      'Полная поддержка и обслуживание'
+    ]
+  },
+  {
+    title: 'Доработка магазина',
+    popular: PopularPlanType.NO,
+    price: 'По запросу',
+    description: 'Мы свяжемся с вами, рассчитаем смету и выполним доработку интернет-магазина.',
+    buttonText: 'Уточнить стоимость',
+    benefitList: ['Индивидуальная доработка', 'Расчет сметы', 'Выполнение работы по вашему запросу']
   }
 ];
 
@@ -47,18 +67,21 @@ export const Pricing = () => {
         цена
       </h2>
       <h3 className='text-xl text-center text-muted-foreground pt-4 pb-8'>
-        Мы генерируем продукты для ваших бизнесов за постоянную и низкую цену
+        Мы предлагаем несколько пакетов для вашего интернет-магазина по фиксированным ценам, а также услуги по
+        доработке.
       </h3>
-      <div className='flex justify-center gap-8'>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-8'>
         {pricingList.map((pricing: PricingProps) => (
           <Card
             key={pricing.title}
             className={
-              pricing.popular === PopularPlanType.YES ? 'drop-shadow-xl shadow-black/10 dark:shadow-white/10' : ''
+              pricing.popular === PopularPlanType.YES
+                ? 'drop-shadow-xl shadow-black/10 dark:shadow-white/10 flex flex-col'
+                : 'flex flex-col'
             }
           >
             <CardHeader>
-              <CardTitle className='flex item-center justify-between'>
+              <CardTitle className='flex items-center justify-between'>
                 {pricing.title}
                 {pricing.popular === PopularPlanType.YES ? (
                   <Badge variant='secondary' className='text-sm text-primary'>
@@ -67,8 +90,8 @@ export const Pricing = () => {
                 ) : null}
               </CardTitle>
               <div>
-                <span className='text-3xl font-bold'>{pricing.price}₽</span>
-                <span className='text-muted-foreground'> /продукт</span>
+                <span className='text-3xl font-bold'>{pricing.price}</span>
+                <span className='text-muted-foreground'> /услуга</span>
               </div>
 
               <CardDescription>{pricing.description}</CardDescription>

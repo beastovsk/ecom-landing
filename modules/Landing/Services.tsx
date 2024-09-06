@@ -1,7 +1,7 @@
 import {Card, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
-import {MagnifierIcon, WalletIcon, ChartIcon} from './Icons';
 import cubeLeg from '@/src/assets/cube-leg.png';
 import Image from 'next/image';
+import {ShoppingCart, Shield, DollarSign} from 'lucide-react'; // Importing icons from Lucide
 
 interface ServiceProps {
   title: string;
@@ -11,21 +11,22 @@ interface ServiceProps {
 
 const serviceList: ServiceProps[] = [
   {
-    title: 'Потенциал',
+    title: 'Полный комплект',
     description:
-      'Наша платформа сортирует продукты на основе исторических данных и мы не пропускаем продукты с пустым будущим',
-    icon: <ChartIcon />
+      'Мы предоставляем готовый интернет-магазин с админ панелью, что позволяет вам сразу начать продажи без необходимости разрабатывать сайт с нуля.',
+    icon: <ShoppingCart className='w-8 h-8 text-primary' />
   },
   {
-    title: 'Финансовый потенциал',
-    description: 'Генерируем продукты с хорошим показателем доходности, применив рекомендации - вы сможете построить надежный бизнес',
-    icon: <WalletIcon />
+    title: 'Безопасность',
+    description:
+      'Наши магазины обеспечивают высокую безопасность данных и транзакций, что защищает вас и ваших клиентов.',
+    icon: <Shield className='w-8 h-8 text-primary' />
   },
   {
-    title: 'Конкурентность',
+    title: 'Финансовая выгода',
     description:
-      'Ваш новый продукт будет полностью соответствовать рынку и мы дадим вам слабые стороны ваших конкурентов, улучшив которые - вы сможете забрать рынок себе',
-    icon: <MagnifierIcon />
+      'Получите готовый к продаже магазин с возможностью быстрого запуска и высокой доходностью, что обеспечивает отличное соотношение цены и качества.',
+    icon: <DollarSign className='w-8 h-8 text-primary' />
   }
 ];
 
@@ -35,16 +36,13 @@ export const Services = () => {
       <div className='grid lg:grid-cols-[1fr,1fr] gap-8 place-items-center'>
         <div>
           <h2 className='text-3xl md:text-4xl font-bold'>
-            Как
-            <span className='bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text'>
-              {' '}
-              генерируются
-            </span>{' '}
-            продукты?
+            Как{' '}
+            <span className='bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text'> работает</span>{' '}
+            покупка нашего магазина?
           </h2>
 
-          <p className='text-muted-foreground text-xl mt-4 mb-8 '>
-            В процессе генерации ИИ допускает продукты, которые проходят минимум два пункта
+          <p className='text-muted-foreground text-xl mt-4 mb-8'>
+            Мы предлагаем простой и эффективный способ начать свой бизнес в интернете
           </p>
 
           <div className='flex flex-col gap-8'>

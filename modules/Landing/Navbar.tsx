@@ -4,7 +4,7 @@ import {NavigationMenu, NavigationMenuItem, NavigationMenuList} from '@/componen
 import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from '@/components/ui/sheet';
 
 import {buttonVariants} from '@/components/ui/button';
-import {ArrowRight, BriefcaseBusiness, Menu} from 'lucide-react';
+import {ArrowRight, BriefcaseBusiness, Menu, Store} from 'lucide-react';
 import {getCookie} from 'cookies-next';
 import Link from 'next/link';
 
@@ -15,25 +15,16 @@ interface RouteProps {
 
 const routeList: RouteProps[] = [
   {
-    href: '#features',
-    label: 'Преимущества'
+    href: '/',
+    label: 'Главная'
   },
   {
-    href: '#howItWorks',
-    label: 'Как это работает?'
-  },
-  {
-    href: '#pricing',
-    label: 'Цены'
-  },
-  {
-    href: '#faq',
-    label: 'Вопросы'
+    href: '/blog',
+    label: 'Блог'
   }
 ];
 
 export const Navbar = () => {
-  const token = getCookie('token');
   const [isOpen, setIsOpen] = useState<boolean>(false);
   return (
     <header className='sticky border-b-[1px] top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background'>
@@ -41,8 +32,8 @@ export const Navbar = () => {
         <NavigationMenuList className='container h-14 px-4 w-screen flex justify-between '>
           <NavigationMenuItem className='font-bold flex'>
             <a rel='noreferrer noopener' href='/' className='ml-2 font-bold text-xl flex items-center'>
-              <BriefcaseBusiness className='mr-2' />
-              Startup Idea
+              <Store className='mr-2' />
+              Ecom Store
             </a>
           </NavigationMenuItem>
 
@@ -73,13 +64,13 @@ export const Navbar = () => {
                   ))}
                   <a
                     rel='noreferrer noopener'
-                    href='/register'
+                    href='https://t.me/beastovsk'
                     target='_blank'
                     className={`w-[110px] border ${buttonVariants({
                       variant: 'secondary'
                     })}`}
                   >
-                    Начать <ArrowRight className='ml-2 w-5 h-5' />
+                    Написать владельцу <ArrowRight className='ml-2 w-5 h-5' />
                   </a>
                 </nav>
               </SheetContent>
@@ -105,10 +96,11 @@ export const Navbar = () => {
           <div className='hidden md:flex gap-2'>
             <Link
               rel='noreferrer noopener'
-              href={token ? '/home' : '/register'}
+              href='https://t.me/beastovsk'
+              target='_blank'
               className={`border ${buttonVariants({variant: 'secondary'})}`}
             >
-              {token ? 'Продолжить' : 'Начать'} <ArrowRight className='ml-2 w-5 h-5' />
+              Написать владельцу <ArrowRight className='ml-2 w-5 h-5' />
             </Link>
           </div>
         </NavigationMenuList>

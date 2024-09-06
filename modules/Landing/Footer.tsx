@@ -1,5 +1,5 @@
 import {Offer} from '@/components/Docs/Offer';
-import {BriefcaseBusiness} from 'lucide-react';
+import {BriefcaseBusiness, Store} from 'lucide-react';
 
 export const Footer = () => {
   return (
@@ -9,8 +9,8 @@ export const Footer = () => {
       <section className='container py-20 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8'>
         <div className='col-span-full xl:col-span-2'>
           <a rel='noreferrer noopener' href='/' className='font-bold text-xl flex'>
-            <BriefcaseBusiness className='mr-2' />
-            Startup Idea
+            <Store className='mr-2' />
+            Ecom Store
           </a>
         </div>
 
@@ -33,12 +33,12 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className='flex flex-col gap-2'>
+        {/* <div className='flex flex-col gap-2'>
           <h3 className='font-bold text-lg'>Документы</h3>
           <div>
             <Offer />
           </div>
-        </div>
+        </div> */}
 
         <div className='flex flex-col gap-2'>
           <h3 className='font-bold text-lg'>Сервис</h3>
@@ -63,7 +63,7 @@ export const Footer = () => {
       </section>
 
       <section className='container pb-14 text-center'>
-        <h3>&copy; 2024 Startup Idea, Наршинов А.А. ИНН 645326949589</h3>
+        <h3>&copy; 2024 Ecom store, Наршинов А.А. ИНН 645326949589</h3>
       </section>
     </footer>
   );
