@@ -20,13 +20,38 @@ export const PurchaseRequestForm = () => {
     setFormData((prevState) => ({...prevState, [name]: value}));
   };
 
+  const isValidPhoneNumber = (phone: string) => {
+    // Example of a simple validation rule: must be at least 10 digits and only numbers.
+    const phoneRegex = /^\d{10,}$/;
+    return phoneRegex.test(phone);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Validate required fields
+    if (!formData.name || !formData.phone) {
+      toast({
+        title: 'Ошибка валидации',
+        description: 'Пожалуйста, заполните все обязательные поля (имя и телефон).'
+      });
+      return;
+    }
+
+    // Validate phone number
+    if (!isValidPhoneNumber(formData.phone)) {
+      toast({
+        title: 'Неверный номер телефона',
+        description: 'Пожалуйста, введите правильный номер телефона (минимум 10 цифр).'
+      });
+      return;
+    }
+
     setIsSubmitting(true);
 
     const TELEGRAM_API_TOKEN = '7319980228:AAGYT0fdIfxgJrLBYbp8XkX4oDP-UbBjoSM';
     const CHAT_ID = '1069385289';
-    const message = `Новая заявка на приобретение магазина:\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nСообщение: ${formData.message}`;
+    const message = `Вопрос:\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nСообщение: ${formData.message}`;
 
     try {
       await fetch(`https://api.telegram.org/bot${TELEGRAM_API_TOKEN}/sendMessage`, {
@@ -62,13 +87,11 @@ export const PurchaseRequestForm = () => {
 
       <div className='container py-24 sm:py-32'>
         <h3 className='text-center text-4xl md:text-5xl font-bold'>
-          Оставьте заявку на{' '}
-          <span className='bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text'>
-            покупку магазина
-          </span>
+          Остались{' '}
+          <span className='bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text'>вопросы?</span>
         </h3>
         <p className='text-xl text-muted-foreground text-center mt-4 mb-8'>
-          Заполните форму, и мы свяжемся с вами для уточнения деталей.
+          Заполните форму, и мы свяжемся с вами по любым вопросам.
         </p>
 
         <form onSubmit={handleSubmit} className='flex flex-col w-full md:w-6/12 lg:w-4/12 mx-auto gap-4 md:gap-2'>
@@ -91,7 +114,7 @@ export const PurchaseRequestForm = () => {
             required
           />
           <Textarea
-            placeholder='Ваши пожелания или вопросы'
+            placeholder='Ваш вопрос'
             className='bg-muted/50 dark:bg-muted/80'
             aria-label='message'
             name='message'

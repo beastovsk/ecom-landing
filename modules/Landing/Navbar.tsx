@@ -1,11 +1,10 @@
 'use client';
+
 import {useState} from 'react';
 import {NavigationMenu, NavigationMenuItem, NavigationMenuList} from '@/components/ui/navigation-menu';
 import {Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger} from '@/components/ui/sheet';
-
 import {buttonVariants} from '@/components/ui/button';
-import {ArrowRight, BriefcaseBusiness, Menu, Store} from 'lucide-react';
-import {getCookie} from 'cookies-next';
+import {ArrowRight, Menu, Store} from 'lucide-react';
 import Link from 'next/link';
 
 interface RouteProps {
@@ -26,33 +25,32 @@ const routeList: RouteProps[] = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
   return (
     <header className='sticky border-b-[1px] top-0 z-40 w-full bg-white dark:border-b-slate-700 dark:bg-background'>
       <NavigationMenu className='mx-auto'>
         <NavigationMenuList className='container h-14 px-4 w-screen flex justify-between '>
           <NavigationMenuItem className='font-bold flex'>
-            <a rel='noreferrer noopener' href='/' className='ml-2 font-bold text-xl flex items-center'>
+            <Link rel='noreferrer noopener' href='/' className='ml-2 font-bold text-xl flex items-center'>
               <Store className='mr-2' />
               Ecom Store
-            </a>
+            </Link>
           </NavigationMenuItem>
 
-          {/* mobile */}
+          {/* Mobile Navigation */}
           <span className='flex md:hidden'>
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger className='px-2'>
-                <Menu className='flex md:hidden h-5 w-5' onClick={() => setIsOpen(true)}>
-                  <span className='sr-only'>Menu Icon</span>
-                </Menu>
+                <Menu className='flex md:hidden h-5 w-5' />
               </SheetTrigger>
 
               <SheetContent side={'left'}>
                 <SheetHeader>
-                  <SheetTitle className='font-bold text-xl'>Startup Idea</SheetTitle>
+                  <SheetTitle className='font-bold text-xl'>Ecom Store</SheetTitle>
                 </SheetHeader>
                 <nav className='flex flex-col justify-center items-center gap-2 mt-4'>
                   {routeList.map(({href, label}: RouteProps) => (
-                    <a
+                    <Link
                       rel='noreferrer noopener'
                       key={label}
                       href={href}
@@ -60,9 +58,9 @@ export const Navbar = () => {
                       className={buttonVariants({variant: 'ghost'})}
                     >
                       {label}
-                    </a>
+                    </Link>
                   ))}
-                  <a
+                  <Link
                     rel='noreferrer noopener'
                     href='https://t.me/beastovsk'
                     target='_blank'
@@ -70,25 +68,25 @@ export const Navbar = () => {
                       variant: 'secondary'
                     })}`}
                   >
-                    Написать владельцу <ArrowRight className='ml-2 w-5 h-5' />
-                  </a>
+                    Поддержка <ArrowRight className='ml-2 w-5 h-5' />
+                  </Link>
                 </nav>
               </SheetContent>
             </Sheet>
           </span>
 
-          {/* desktop */}
+          {/* Desktop Navigation */}
           <nav className='hidden md:flex gap-2'>
-            {routeList.map((route: RouteProps, i) => (
+            {routeList.map(({href, label}: RouteProps) => (
               <Link
                 rel='noreferrer noopener'
-                href={route.href}
-                key={i}
+                href={href}
+                key={href}
                 className={`text-[17px] ${buttonVariants({
                   variant: 'ghost'
                 })}`}
               >
-                {route.label}
+                {label}
               </Link>
             ))}
           </nav>
@@ -100,7 +98,7 @@ export const Navbar = () => {
               target='_blank'
               className={`border ${buttonVariants({variant: 'secondary'})}`}
             >
-              Написать владельцу <ArrowRight className='ml-2 w-5 h-5' />
+              Поддержка <ArrowRight className='ml-2 w-5 h-5' />
             </Link>
           </div>
         </NavigationMenuList>

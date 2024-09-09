@@ -20,19 +20,15 @@ export default async function Page() {
     <>
       <Navbar />
       <Hero />
-      {/* <Sponsors /> */}
       <About />
       <HowItWorks />
       <Features />
       <Services />
-      {/* <Cta /> */}
-      {/* <Testimonials /> */}
-      {/* <Team /> */}
       <Pricing />
-      <PurchaseRequestForm />
+      {/* <PurchaseRequestForm />
       <FAQ />
       <Footer />
-      <ScrollToTop />
+      <ScrollToTop /> */}
     </>
   );
 }
