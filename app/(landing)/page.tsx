@@ -25,10 +25,10 @@ export default async function Page() {
       <Features />
       <Services />
       <Pricing />
-      {/* <PurchaseRequestForm />
+      <PurchaseRequestForm />
       <FAQ />
       <Footer />
-      <ScrollToTop /> */}
+      <ScrollToTop />
     </>
   );
 }
