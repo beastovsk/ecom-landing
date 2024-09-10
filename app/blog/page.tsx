@@ -4,6 +4,8 @@ import Blog from '@/modules/Blog/Blog/Blog';
 import {Metadata} from 'next';
 import React from 'react';
 
+export const dynamic = 'force-dynamic';
+
 function getBlogById(articleId: string) {
   return articles.find(({id}) => id == articleId);
 }
