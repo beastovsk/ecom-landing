@@ -11,23 +11,22 @@ export const Hero = () => {
       {/* Main Title Section */}
       <div className='max-w-3xl space-y-6'>
         <h1 className='text-5xl md:text-6xl font-bold'>
-          Готовые интернет-магазины с{' '}
+          Быстрые интернет-магазины с{' '}
           <span className='inline bg-gradient-to-r from-[#F596D3] to-[#D247BF] text-transparent bg-clip-text'>
-            мощной
+            удобной
           </span>{' '}
           админ панелью
         </h1>
 
         <p className='text-xl text-muted-foreground md:w-9/12 mx-auto'>
-          Создайте свой интернет-магазин без разработки с нашими готовыми решениями. Управляйте товарами, заказами и
-          клиентами с удобной админ панелью.
+          Управляйте своим интернет-магазином без скрытых платежей, самовольным понижением цен и на своих правилах
         </p>
       </div>
 
       {/* Call to Action Buttons */}
       <div className='flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4'>
         <Link href='#purchase-request'>
-          <Button className='w-full md:w-auto px-8 py-4'>Приобрести</Button>
+          <Button className='w-full md:w-auto px-8 py-4'>Связаться</Button>
         </Link>
         <a
           rel='noreferrer noopener'

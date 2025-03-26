@@ -23,7 +23,7 @@ export default async function Page() {
       <About />
       <HowItWorks />
       <Features />
-      <Services />
+      {/* <Services /> */}
       <Pricing />
       <PurchaseRequestForm />
       <FAQ />

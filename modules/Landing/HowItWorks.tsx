@@ -10,23 +10,23 @@ interface FeatureProps {
 const features: FeatureProps[] = [
   {
     icon: <MedalIcon />,
-    title: 'Выбор магазина',
-    description: 'Изучите наши готовые решения и выберите интернет-магазин, который соответствует вашим требованиям.'
+    title: 'Выбор шаблона',
+    description: 'Найдите магазин, который понравится вашим клиентам'
   },
   {
     icon: <MapIcon />,
-    title: 'Оформление покупки',
-    description: 'Заполните форму с вашими контактными данными и выберите удобный способ оплаты.'
+    title: 'Свяжитесь с нами',
+    description: 'Заполните форму, на встрече мы разберемся как максимально быстро и выгодно для Вас запустить Ваш магазин.'
   },
   {
     icon: <PlaneIcon />,
     title: 'Настройка магазина',
-    description: 'Получите доступ к админ панели, настройте свой магазин и добавьте товары.'
+    description: 'Мы выдадим вам доступы от вашей админ-панели, где вы можете настроить все для лучшей работы Вашего магазина'
   },
   {
     icon: <GiftIcon />,
     title: 'Запуск и поддержка',
-    description: 'Запускайте магазин и начните продажи. Мы всегда готовы помочь с поддержкой и настройками.'
+    description: 'Запускайте рекламу уже спустя пару дней. Мы всегда готовы помочь с поддержкой и настройкой.'
   }
 ];
 
@@ -35,11 +35,10 @@ export const HowItWorks = () => {
     <section id='howItWorks' className='container text-center py-24 sm:py-32'>
       <h2 className='text-3xl md:text-4xl font-bold'>
         Как это{' '}
-        <span className='bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text'>Работает, </span>
-        Пошаговое руководство
+        <span className='bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text'>Работает</span>?
       </h2>
       <p className='md:w-3/4 mx-auto mt-4 mb-8 text-xl text-muted-foreground'>
-        Узнайте, как легко начать свой онлайн-бизнес с нашими готовыми интернет-магазинами
+        Узнайте, как легко начать свой онлайн-бизнес
       </p>
 
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>

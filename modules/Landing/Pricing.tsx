@@ -29,27 +29,25 @@ const pricingList: PricingProps[] = [
   {
     title: 'Стандартный пакет',
     popular: PopularPlanType.NO,
-    price: '₽ 30.000,00',
+    price: '₽ 110.000,00',
     description: 'Готовый интернет-магазин. Заказы через личный кабинет.',
     buttonText: 'Заказать',
     benefitList: [
       'Готовый интернет-магазин',
       'Админ панель для управления',
       'Заказы через личный кабинет',
-      'Базовая поддержка'
     ]
   },
   {
     title: 'Премиум пакет',
     popular: PopularPlanType.YES,
-    price: '₽ 50.000,00',
+    price: '₽ 150.000,00',
     description: 'Готовый интернет-магазин с интеграцией онлайн оплат (карты, СберПэй, криптовалюта).',
     buttonText: 'Заказать',
     benefitList: [
       'Готовый интернет-магазин',
       'Админ панель для управления',
       'Интеграция онлайн оплат и заказы в личном кабинете',
-      'Полная поддержка и обслуживание'
     ]
   },
   {
@@ -86,7 +84,7 @@ export const Pricing = () => {
 
     setIsSubmitting(true);
 
-    const TELEGRAM_API_TOKEN = '7319980228:AAGYT0fdIfxgJrLBYbp8XkX4oDP-UbBjoSM';
+    const TELEGRAM_API_TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_TOKEN;
     const CHAT_ID = '1069385289';
     const message = `Возможная покупка:\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nПлан: ${formData.plan}\nВопросы и желания: ${formData.questions}`;
 
@@ -166,7 +164,7 @@ export const Pricing = () => {
               </CardTitle>
               <div>
                 <span className='text-3xl font-bold'>{pricing.price}</span>
-                <span className='text-muted-foreground'> /услуга</span>
+                <span className='text-muted-foreground'> /товар</span>
               </div>
 
               <CardDescription>{pricing.description}</CardDescription>

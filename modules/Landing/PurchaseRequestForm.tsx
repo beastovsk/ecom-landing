@@ -32,24 +32,15 @@ export const PurchaseRequestForm = () => {
     // Validate required fields
     if (!formData.name || !formData.phone) {
       toast({
-        title: 'Ошибка валидации',
+        title: 'Ошибка в форме',
         description: 'Пожалуйста, заполните все обязательные поля (имя и телефон).'
-      });
-      return;
-    }
-
-    // Validate phone number
-    if (!isValidPhoneNumber(formData.phone)) {
-      toast({
-        title: 'Неверный номер телефона',
-        description: 'Пожалуйста, введите правильный номер телефона (минимум 10 цифр).'
       });
       return;
     }
 
     setIsSubmitting(true);
 
-    const TELEGRAM_API_TOKEN = '7319980228:AAGYT0fdIfxgJrLBYbp8XkX4oDP-UbBjoSM';
+    const TELEGRAM_API_TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_TOKEN;
     const CHAT_ID = '1069385289';
     const message = `Вопрос:\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nСообщение: ${formData.message}`;
 

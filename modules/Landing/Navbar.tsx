@@ -13,14 +13,14 @@ interface RouteProps {
 }
 
 const routeList: RouteProps[] = [
-  {
-    href: '/',
-    label: 'Главная'
-  },
-  {
-    href: '/blog',
-    label: 'Блог'
-  }
+  // {
+  //   href: '/',
+  //   label: 'Главная'
+  // },
+  // {
+  //   href: '/blog',
+  //   label: 'Блог'
+  // }
 ];
 
 export const Navbar = () => {

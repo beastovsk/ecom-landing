@@ -63,7 +63,7 @@ export const Footer = () => {
       </section>
 
       <section className='container pb-14 text-center'>
-        <h3>&copy; 2024 Ecom store, Наршинов А.А. ИНН 645326949589</h3>
+        <h3>&copy; 2025 Ecom store, Наршинов А.А. ИНН 645326949589</h3>
       </section>
     </footer>
   );
