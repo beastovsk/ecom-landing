@@ -7,7 +7,7 @@ export const PreviewTemplate = ({url}) => {
           Открыть макет
         </button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className='w-full'>
         <iframe
           style={{width: '100%', height: '600px', border: 'none'}}
           src={`https://www.figma.com/embed?embed_host=yourwebsite&url=${url}`}
