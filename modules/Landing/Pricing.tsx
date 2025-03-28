@@ -10,6 +10,7 @@ import {useToast} from '@/components/ui/use-toast';
 import {Check} from 'lucide-react';
 import {useState} from 'react';
 import {Textarea} from '@/components/ui/textarea';
+import {OrderModal} from './OrderModal';
 
 enum PopularPlanType {
   NO = 0,
@@ -32,11 +33,7 @@ const pricingList: PricingProps[] = [
     price: '₽ 110.000,00',
     description: 'Готовый интернет-магазин. Заказы через личный кабинет.',
     buttonText: 'Заказать',
-    benefitList: [
-      'Готовый интернет-магазин',
-      'Админ панель для управления',
-      'Заказы через личный кабинет',
-    ]
+    benefitList: ['Готовый интернет-магазин', 'Админ панель для управления', 'Заказы через личный кабинет']
   },
   {
     title: 'Премиум пакет',
@@ -47,7 +44,7 @@ const pricingList: PricingProps[] = [
     benefitList: [
       'Готовый интернет-магазин',
       'Админ панель для управления',
-      'Интеграция онлайн оплат и заказы в личном кабинете',
+      'Интеграция онлайн оплат и заказы в личном кабинете'
     ]
   },
   {
@@ -171,59 +168,7 @@ export const Pricing = () => {
             </CardHeader>
 
             <CardContent>
-              <Dialog>
-                <DialogTrigger className='w-full'>
-                  <Button className='w-full'>{isSubmitting ? 'Отправка...' : pricing.buttonText}</Button>
-                </DialogTrigger>
-                <DialogContent>
-                  {/* Форма в DialogContent */}
-                  <div className='flex flex-col gap-2 mt-5'>
-                    <h2 className='mb-5 text-xl font-medium'>Ваша заявка</h2>
-                    <Input
-                      type='text'
-                      name='name'
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder='Ваше имя'
-                      required
-                      className='w-full p-2 border rounded'
-                    />
-                    <Input
-                      type='tel'
-                      name='phone'
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder='Ваш телефон'
-                      className='w-full p-2 border rounded'
-                    />
-
-                    <Select onValueChange={handlePlanChange} value={formData.plan}>
-                      <SelectTrigger id='plan'>
-                        <SelectValue placeholder='Выберите план' />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value='Стандартный пакет'>Стандартный пакет</SelectItem>
-                        <SelectItem value='Премиум пакет'>Премиум пакет</SelectItem>
-                        <SelectItem value='Доработка магазина'>Доработка магазина</SelectItem>
-                      </SelectContent>
-                    </Select>
-                    <Textarea
-                      name='questions'
-                      value={formData.questions}
-                      onChange={handleInputChange}
-                      placeholder='Ваши вопросы и пожелания (необязательно)'
-                      className='w-full p-2 border rounded'
-                    />
-                  </div>
-                  <DialogFooter>
-                    <DialogClose className='w-full'>
-                      <Button type='submit' className='w-full mt-3' onClick={handleSubmit} disabled={isSubmitting}>
-                        {isSubmitting ? 'Отправка...' : pricing.buttonText}
-                      </Button>
-                    </DialogClose>
-                  </DialogFooter>
-                </DialogContent>
-              </Dialog>
+              <OrderModal pricing={pricing} />
             </CardContent>
 
             <hr className='w-4/5 mx-auto mb-4' />

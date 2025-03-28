@@ -35,13 +35,37 @@ const gilroy = localFont({
   ]
 });
 
+export async function getStaticProps() {
+  return {props: {title: 'Готовый магазин'}};
+}
+
 export const metadata: Metadata = {
   title: {
-    default: 'Ecom Store',
+    default: 'Готовый интернет-магазин под ключ',
     template: `%s | Ecom Store`
   },
-  description: 'Интернет-магазины с админ панелью для вашего бизнеса',
+  description: 'Современные интернет-магазины с удобной админкой и высокой скоростью',
   keywords: keywords,
+  openGraph: {
+    title: 'Готовый интернет-магазин под ключ',
+    description: 'Запустите интернет-магазин за 1 день с админкой и SEO.',
+    url: 'https://ecom-store.ru/',
+    siteName: 'Ecom Store',
+    images: [
+      {
+        url: 'https://i.imgur.com/zIDRkue.png',
+        width: 1200,
+        height: 630
+      }
+    ],
+    type: 'website'
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Готовый интернет-магазин под ключ',
+    description: 'Интернет-магазин с быстрой загрузкой и удобной админкой.',
+    images: ['https://i.imgur.com/zIDRkue.png']
+  },
   robots: {
     index: true,
     follow: true
@@ -64,6 +88,27 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         {/* <meta name='yandex-verification' content='c4492d1cc4639f2c' /> */}
         {/* <YandexMetrika yid={94315700} clickmap={true} trackLinks={true} accurateTrackBounce={true} webvisor={true} /> */}
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <title>Готовый интернет-магазин под ключ – Быстро и с админ-панелью</title>
+        <meta
+          name='description'
+          content='Современные интернет-магазины с удобной админкой и высокой скоростью. Запуск за 24 часа!'
+        />
+        <meta name='keywords' content='интернет-магазин, готовый магазин, бизнес онлайн, ecom store' />
+        <meta name='robots' content='index, follow' />
+        <link rel='canonical' href='https://ecom-store.ru/' />
+
+        {/* Open Graph для соцсетей */}
+        <meta property='og:title' content='Готовый интернет-магазин под ключ' />
+        <meta property='og:description' content='Запустите интернет-магазин за 1 день с админкой и SEO.' />
+        <meta property='og:image' content='https://i.imgur.com/zIDRkue.png' />
+        <meta property='og:url' content='https://ecom-store.ru/' />
+        <meta property='og:type' content='website' />
+
+        {/* Twitter Cards */}
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:title' content='Готовый интернет-магазин под ключ' />
+        <meta name='twitter:description' content='Интернет-магазин с быстрой загрузкой и удобной админкой.' />
+        <meta name='twitter:image' content='https://i.imgur.com/zIDRkue.png' />
       </Head>
       <body>
         <main className={gilroy.className}>
@@ -83,6 +128,30 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         accurateTrackBounce:true,
         webvisor:true
    });`}
+      </Script>
+      <Script type='application/ld+json'>
+        {JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Product',
+          name: 'Готовый интернет-магазин',
+          image: 'https://i.imgur.com/zIDRkue.png',
+          description: 'Современный интернет-магазин с SEO-оптимизацией.',
+          brand: {'@type': 'Brand', name: 'Ecom Store'},
+          offers: {
+            '@type': 'Offer',
+            price: '110000',
+            priceCurrency: 'RUB',
+            availability: 'https://schema.org/InStock'
+          }
+        })}
+      </Script>
+      <Script>
+       {`(function(w, d, s, h, id) {
+          w.roistatProjectId = id; w.roistatHost = h;
+          var p = d.location.protocol == "https:" ? "https://" : "http://";
+          var u = /^.*roistat_visit=[^;]+(.*)?$/.test(d.cookie) ? "/dist/module.js" : "/api/site/1.0/"+id+"/init?referrer="+encodeURIComponent(d.location.href);
+          var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
+      })(window, document, 'script', 'cloud.roistat.com', '466b219bcd9a5880c2c88fa4c292c3d9')`}
       </Script>
     </html>
   );

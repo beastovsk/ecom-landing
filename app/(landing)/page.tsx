@@ -14,6 +14,7 @@ import {Sponsors} from '@/modules/Landing/Sponsors';
 import {Team} from '@/modules/Landing/Team';
 import {Testimonials} from '@/modules/Landing/Testimonials';
 import React from 'react';
+import { Templates } from '@/modules/Landing/Templates';
 
 export default async function Page() {
   return (
@@ -22,6 +23,7 @@ export default async function Page() {
       <Hero />
       <About />
       <HowItWorks />
+      <Templates />
       <Features />
       {/* <Services /> */}
       <Pricing />
