@@ -11,6 +11,7 @@ import {Check} from 'lucide-react';
 import {useState} from 'react';
 import {Textarea} from '@/components/ui/textarea';
 import {OrderModal} from './OrderModal';
+import Image from 'next/image';
 
 enum PopularPlanType {
   NO = 0,
@@ -30,98 +31,38 @@ const pricingList: PricingProps[] = [
   {
     title: 'Стандартный пакет',
     popular: PopularPlanType.NO,
-    price: '₽ 110.000,00',
+    price: '₽ 30.000,00',
     description: 'Готовый интернет-магазин. Заказы через личный кабинет.',
     buttonText: 'Заказать',
-    benefitList: ['Готовый интернет-магазин', 'Админ панель для управления', 'Заказы через личный кабинет']
+    benefitList: [
+      'Готовый интернет-магазин',
+      'Админ панель для управления товарами',
+      'Обработка заказов через личный кабинет'
+    ]
   },
   {
     title: 'Премиум пакет',
     popular: PopularPlanType.YES,
-    price: '₽ 150.000,00',
-    description: 'Готовый интернет-магазин с интеграцией онлайн оплат (карты, СберПэй, криптовалюта).',
+    price: '₽ 50.000,00',
+    description: 'Готовый интернет-магазин. Оплата на сайте.',
     buttonText: 'Заказать',
     benefitList: [
-      'Готовый интернет-магазин',
-      'Админ панель для управления',
-      'Интеграция онлайн оплат и заказы в личном кабинете'
+      'Все из стандартного пакета',
+      'Интеграция с онлайн-оплатами: карты, СберПэй, криптовалюта',
+      'Управление заказами через личный кабинет'
     ]
   },
   {
-    title: 'Доработка магазина',
+    title: 'Индивидуальная доработка',
     popular: PopularPlanType.NO,
     price: 'По запросу',
-    description: 'Мы свяжемся с вами, рассчитаем смету и выполним доработку интернет-магазина.',
+    description: 'Мы свяжемся с вами, рассчитаем функционал и выполним доработку интернет-магазина.',
     buttonText: 'Уточнить стоимость',
-    benefitList: ['Индивидуальная доработка', 'Расчет сметы', 'Выполнение работы по вашему запросу']
+    benefitList: ['Разработка уникальных функций и доработок для вашего магазина', 'Смета на основе ваших требований']
   }
 ];
 
 export const Pricing = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const {toast} = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    plan: '',
-    questions: ''
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Validation
-    if (!formData.name || !formData.plan) {
-      toast({
-        title: 'Ошибка валидации',
-        description: 'Пожалуйста, заполните все обязательные поля.'
-      });
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    const TELEGRAM_API_TOKEN = process.env.NEXT_PUBLIC_TELEGRAM_TOKEN;
-    const CHAT_ID = '1069385289';
-    const message = `Возможная покупка:\nИмя: ${formData.name}\nТелефон: ${formData.phone}\nПлан: ${formData.plan}\nВопросы и желания: ${formData.questions}`;
-
-    try {
-      await fetch(`https://api.telegram.org/bot${TELEGRAM_API_TOKEN}/sendMessage`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text: message
-        })
-      });
-
-      toast({
-        title: 'Заявка отправлена!',
-        description: 'Мы свяжемся с вами в ближайшее время.'
-      });
-
-      setFormData({name: '', phone: '', plan: '', questions: ''});
-    } catch (error) {
-      toast({
-        title: 'Ошибка отправки',
-        description: 'Пожалуйста, попробуйте снова.'
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {name, value} = e.target;
-    setFormData((prev) => ({...prev, [name]: value}));
-  };
-
-  const handlePlanChange = (value: string) => {
-    setFormData((prev) => ({...prev, plan: value}));
-  };
-
   return (
     <section id='pricing' className='container py-24 sm:py-32'>
       <h2 className='text-3xl md:text-4xl font-bold text-center'>
@@ -184,6 +125,40 @@ export const Pricing = () => {
             </CardFooter>
           </Card>
         ))}
+      </div>
+      <div className='container py-24 sm:py-32'>
+        <h2 className='text-3xl md:text-4xl font-bold text-center'>
+          Почему стоит выбрать{' '}
+          <span className='bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text'>наши пакеты</span>
+          ?{' '}
+        </h2>
+        <div className='mt-5 flex flex-col gap-5'>
+          <div className='flex gap-5 items-center'>
+            <Image src='/image/true.png' alt='true' width={30} height={30} />
+            <div>
+              <h2 className='text-xl sm:text-2xl font-bold'>Готовность к запуску</h2>
+              <p className='text-xl text-gray-400'>
+                Мы обеспечиваем полную настройку вашего магазина в короткие сроки.
+              </p>
+            </div>
+          </div>
+          <div className='flex gap-5 items-center'>
+            <Image src='/image/true.png' alt='true' width={30} height={30} />
+            <div>
+              <h2 className='text-xl sm:text-2xl font-bold'>Удобство</h2>
+              <p className='text-xl text-gray-400'>
+                Интуитивно понятная админ панель и поддержка популярных платежных систем.{' '}
+              </p>
+            </div>
+          </div>
+          <div className='flex gap-5 items-center'>
+            <Image src='/image/true.png' alt='true' width={30} height={30} />
+            <div>
+              <h2 className='text-xl sm:text-2xl font-bold'>Быстрая настройка</h2>
+              <p className='text-xl text-gray-400'>Вы получите свой магазин в рабочем виде, готовый к продажам.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

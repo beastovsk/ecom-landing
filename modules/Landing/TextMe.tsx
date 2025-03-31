@@ -2,6 +2,7 @@
 
 import {Button} from '@/components/ui/button';
 import Link from 'next/link';
+import {OrderModal} from './OrderModal';
 
 export const TextMe = () => {
   return (
@@ -16,14 +17,13 @@ export const TextMe = () => {
             </span>
           </h2>
           <p className='text-muted-foreground text-xl mt-4 mb-8 lg:mb-0'>
-            Напиши мне в телеграм и мы проведем встречу, где я отвечу на все твои вопросы и предложу лучшее решение
+            Заполни форму, и я свяжусь с тобой для подробной консультации и предложу решение, подходящее для твоего
+            бизнеса.{' '}
           </p>
         </div>
 
         <div className='space-y-4 lg:col-start-2'>
-          <Link href='https://t.me/beastovsk' target='_blank'>
-            <Button className='w-full md:mr-4 md:w-auto'>Открыть личные сообщения</Button>
-          </Link>
+          <OrderModal pricing={{buttonText: 'Заполнить форму'}} />
         </div>
       </div>
     </section>

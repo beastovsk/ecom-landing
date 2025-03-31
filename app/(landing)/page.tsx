@@ -11,6 +11,7 @@ import {Pricing} from '@/modules/Landing/Pricing';
 import {ScrollToTop} from '@/modules/Landing/ScrollToTop';
 import React from 'react';
 import {Templates} from '@/modules/Landing/Templates';
+import { Testimonials } from '@/modules/Landing/Testimonials';
 
 export default async function Page() {
   return (
@@ -18,8 +19,9 @@ export default async function Page() {
       <Navbar />
       <Hero />
       <About />
+      <Testimonials />
       <HowItWorks />
-      <Templates />
+      {/* <Templates /> */}
       <Features />
       <TextMe />
       {/* <Services /> */}

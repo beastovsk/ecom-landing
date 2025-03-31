@@ -10,23 +10,25 @@ interface FeatureProps {
 const features: FeatureProps[] = [
   {
     icon: <MedalIcon />,
-    title: 'Выбор шаблона',
-    description: 'Найдите магазин, который понравится вашим клиентам'
+    title: 'Оставьте заявку',
+    description: 'Расскажите о своем бизнесе – мы предложим лучшее решение для вас.'
   },
   {
     icon: <MapIcon />,
-    title: 'Свяжитесь с нами',
-    description: 'Заполните форму, на встрече мы разберемся как максимально быстро и выгодно для Вас запустить Ваш магазин.'
+    title: 'Получите доступ',
+    description:
+      'Выдаем логин и пароль к админке – магазин уже готов к работе.'
   },
   {
     icon: <PlaneIcon />,
-    title: 'Настройка магазина',
-    description: 'Мы выдадим вам доступы от вашей админ-панели, где вы можете настроить все для лучшей работы Вашего магазина'
+    title: 'Настройте под себя',
+    description:
+      'Добавьте товары, установите цены, настройте доставку и оплату.'
   },
   {
     icon: <GiftIcon />,
-    title: 'Запуск и поддержка',
-    description: 'Запускайте рекламу уже спустя пару дней. Мы всегда готовы помочь с поддержкой и настройкой.'
+    title: 'Запускайте продажи',
+    description: 'Начинайте рекламироваться и зарабатывать – мы всегда на связи для поддержки.'
   }
 ];
 
@@ -38,7 +40,7 @@ export const HowItWorks = () => {
         <span className='bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text'>Работает</span>?
       </h2>
       <p className='md:w-3/4 mx-auto mt-4 mb-8 text-xl text-muted-foreground'>
-        Узнайте, как легко начать свой онлайн-бизнес
+        Запустите интернет-магазин без лишних сложностей{' '}
       </p>
 
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>

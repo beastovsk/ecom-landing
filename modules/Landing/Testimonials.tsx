@@ -1,110 +1,83 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import {Avatar, AvatarFallback, AvatarImage} from '@/components/ui/avatar';
+import {Card, CardContent, CardDescription, CardHeader, CardTitle} from '@/components/ui/card';
 
 interface TestimonialProps {
   image: string;
   name: string;
-  userName: string;
   comment: string;
 }
-
 const testimonials: TestimonialProps[] = [
   {
-    image: "https://github.com/shadcn.png",
-    name: "John Doe React",
-    userName: "@john_Doe",
-    comment: "This landing page is awesome!",
+    image: 'https://github.com/shadcn.png',
+    name: 'Алексей М.',
+    comment:
+      'Магазин настроили очень быстро, а админка просто и интуитивно понятна. Работает без сбоев, рекомендую всем!'
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "John Doe React",
-    userName: "@john_Doe1",
+    image: 'https://github.com/shadcn.png',
+    name: 'Светлана Г.',
     comment:
-      "Lorem ipsum dolor sit amet,empor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.",
-  },
-
-  {
-    image: "https://github.com/shadcn.png",
-    name: "John Doe React",
-    userName: "@john_Doe2",
-    comment:
-      "Lorem ipsum dolor sit amet,exercitation. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
+      'Запуск магазина занял всего неделю. Сайт идеально подходит для малого бизнеса, и панель управления легка в освоении.'
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "John Doe React",
-    userName: "@john_Doe3",
+    image: 'https://github.com/shadcn.png',
+    name: 'Максим И.',
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+      'Очень доволен результатом! Сайт работает быстро, а возможность управлять им через удобную админку - большое преимущество.'
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "John Doe React",
-    userName: "@john_Doe4",
+    image: 'https://github.com/shadcn.png',
+    name: 'Наталья В.',
     comment:
-      "Lorem ipsum dolor sit amet, tempor incididunt  aliqua. Ut enim ad minim veniam, quis nostrud.",
+      'Мой магазин был запущен за неделю, а функционал очень удобен. Сайт быстро загружается и выглядит современно.'
   },
   {
-    image: "https://github.com/shadcn.png",
-    name: "John Doe React",
-    userName: "@john_Doe5",
+    image: 'https://github.com/shadcn.png',
+    name: 'Дмитрий К.',
     comment:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      'Не ожидал, что процесс займет так мало времени. Работать с сайтом просто, а админка отлично настроена с первого дня.'
   },
+  {
+    image: 'https://github.com/shadcn.png',
+    name: 'Ольга С.',
+    comment:
+      'Приятно удивлена качеством работы! Всё быстро настроили, и уже через неделю интернет-магазин был готов к запуску.'
+  }
 ];
 
 export const Testimonials = () => {
   return (
-    <section
-      id="testimonials"
-      className="container py-24 sm:py-32"
-    >
-      <h2 className="text-3xl md:text-4xl font-bold">
-        Discover Why
-        <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
-          {" "}
-          People Love{" "}
+    <section id='testimonials' className='container py-24 sm:py-32'>
+      <h2 className='text-3xl md:text-4xl font-bold'>
+        Почему
+        <span className='bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text'>
+          {' '}
+          предприниматели{' '}
         </span>
-        This Landing Page
+        выбирают наши магазины
       </h2>
 
-      <p className="text-xl text-muted-foreground pt-4 pb-8">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non unde error
-        facere hic reiciendis illo
+      <p className='text-xl text-muted-foreground pt-4 pb-8'>
+        Благодарим каждого клиента за доверие и ценные отзывы – ваш успех вдохновляет нас!{' '}
       </p>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 sm:block columns-2  lg:columns-3 lg:gap-6 mx-auto space-y-4 lg:space-y-6">
-        {testimonials.map(
-          ({ image, name, userName, comment }: TestimonialProps) => (
-            <Card
-              key={userName}
-              className="max-w-md md:break-inside-avoid overflow-hidden"
-            >
-              <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                <Avatar>
-                  <AvatarImage
-                    alt=""
-                    src={image}
-                  />
-                  <AvatarFallback>OM</AvatarFallback>
-                </Avatar>
+      <div className='grid md:grid-cols-2 lg:grid-cols-4 sm:block columns-2  lg:columns-3 lg:gap-6 mx-auto space-y-4 lg:space-y-6'>
+        {testimonials.map(({image, name, comment}: TestimonialProps, i) => (
+          <Card key={name} className='max-w-md md:break-inside-avoid overflow-hidden'>
+            <CardHeader className='flex flex-row items-center gap-4 pb-2'>
+              <Avatar>
+                <AvatarImage alt='' />
+                <AvatarFallback>{name[0]}</AvatarFallback>
+              </Avatar>
 
-                <div className="flex flex-col">
-                  <CardTitle className="text-lg">{name}</CardTitle>
-                  <CardDescription>{userName}</CardDescription>
-                </div>
-              </CardHeader>
-
-              <CardContent>{comment}</CardContent>
-            </Card>
-          )
-        )}
+              <div className='flex flex-col'>
+                <CardTitle className='text-lg'>{name}</CardTitle>
+              </div>
+            </CardHeader>
+            <CardContent>{comment}</CardContent>
+            <div className={i === 2 || i === 3 ? 'py-3' : null}></div>
+          </Card>
+        ))}
       </div>
     </section>
   );
