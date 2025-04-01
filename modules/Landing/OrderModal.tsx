@@ -2,7 +2,7 @@ import {Button} from '@/components/ui/button';
 import {Dialog, DialogClose, DialogContent, DialogFooter, DialogTrigger} from '@/components/ui/dialog';
 import {Input} from '@/components/ui/input';
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from '@/components/ui/select';
-import { Textarea } from '@/components/ui/textarea';
+import {Textarea} from '@/components/ui/textarea';
 import {useToast} from '@/components/ui/use-toast';
 import {useState} from 'react';
 
@@ -103,6 +103,7 @@ export const OrderModal = ({pricing}) => {
               <SelectValue placeholder='Выберите план' />
             </SelectTrigger>
             <SelectContent>
+              <SelectItem value='Еще изучаю'>Еще изучаю</SelectItem>
               <SelectItem value='Стандартный пакет'>Стандартный пакет</SelectItem>
               <SelectItem value='Премиум пакет'>Премиум пакет</SelectItem>
               <SelectItem value='Доработка магазина'>Доработка магазина</SelectItem>

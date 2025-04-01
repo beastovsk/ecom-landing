@@ -1,7 +1,5 @@
 'use client';
 
-import {Button} from '@/components/ui/button';
-import Link from 'next/link';
 import {OrderModal} from './OrderModal';
 
 export const TextMe = () => {
@@ -13,11 +11,11 @@ export const TextMe = () => {
             Хочешь узнать подойдет ли
             <span className='bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text'>
               {' '}
-              лично для твоей ниши ?
+              лично для твоей ниши?
             </span>
           </h2>
           <p className='text-muted-foreground text-xl mt-4 mb-8 lg:mb-0'>
-            Заполни форму, и я свяжусь с тобой для подробной консультации и предложу решение, подходящее для твоего
+            Заполни форму, и я свяжусь с тобой для бесплатной консультации и предложу решение, подходящее на 100% именно для твоего
             бизнеса.{' '}
           </p>
         </div>

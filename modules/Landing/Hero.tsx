@@ -31,7 +31,7 @@ export const Hero = () => {
         {/* <Link href='#purchase-request'>
           <Button className='w-full md:w-auto px-8 py-4'>Связаться</Button>
         </Link> */}
-        <OrderModal pricing={{buttonText: 'Заполнить форму'}} />
+        <OrderModal pricing={{buttonText: 'Бесплатная консультация'}} />
         <a
           rel='noreferrer noopener'
           href='#features'
