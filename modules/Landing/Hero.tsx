@@ -15,7 +15,7 @@ export const Hero = () => {
       {/* Main Title Section */}
       <div className='max-w-3xl space-y-6'>
         <h1 className='text-5xl md:text-6xl font-bold'>
-          Готовый интернет-магазины для малого бизнеса за{' '}
+          Готовый интернет-магазин для малого бизнеса за{' '}
           <span className='inline bg-gradient-to-r from-[#F596D3] to-[#D247BF] text-transparent bg-clip-text'>
             неделю
           </span>{' '}
