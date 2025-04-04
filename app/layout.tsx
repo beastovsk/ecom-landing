@@ -109,6 +109,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         <meta name='twitter:title' content='Готовый интернет-магазин под ключ' />
         <meta name='twitter:description' content='Интернет-магазин с быстрой загрузкой и удобной админкой.' />
         <meta name='twitter:image' content='https://i.imgur.com/zIDRkue.png' />
+        <meta name="yandex-verification" content="bf888af12a78587f" />
       </Head>
       <body>
         <main className={gilroy.className}>
